@@ -11,6 +11,21 @@
 |
 */
 
+
+Auth::routes();
 Route::get('/', function () {
+	if (Auth::check()) {
+		return redirect()->route('home');
+	}
     return view('welcome');
+})->name('welcome');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+// Route Admin
+Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin']], function(){
+	Route::get('/', 'AdminController@index')->name('admin.index');
 });
+
+
+
