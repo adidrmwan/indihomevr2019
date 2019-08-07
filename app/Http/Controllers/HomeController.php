@@ -34,7 +34,7 @@ class HomeController extends Controller
                     case 'admin':
                         return redirect()->route('admin.index');
                     case 'user':
-                        return redirect()->route('home');
+                        return redirect()->route('welcome');
                     
                     default:
                         # code...

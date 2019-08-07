@@ -75,4 +75,12 @@ class User extends Authenticatable
         }
             return false;
     }
+
+     public function employee()
+    {
+        return $this->where('users.id', '!=', '1')
+                    ->join('role_user', 'role_user.user_id', '=', 'users.id')
+                    ->join('roles', 'roles.id', '=', 'role_user.role_id')
+                    ->select(['users.id', 'users.name as name', 'users.email', 'roles.description as role_name'])->get();
+    }
 }

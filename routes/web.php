@@ -25,6 +25,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route Admin
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin']], function(){
 	Route::get('/', 'AdminController@index')->name('admin.index');
+	Route::get('/', 								'UserController@index')		->name('user.index');
+	Route::get('create', 							'UserController@create')		->name('user.create');
+	Route::post('register', 						'UserController@register')	->name('user.register');
+
 });
 
 
