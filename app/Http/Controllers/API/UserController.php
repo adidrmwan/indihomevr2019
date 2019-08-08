@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\User; 
 use Illuminate\Support\Facades\Auth; 
 use Validator;
+use App\File;
 
 class UserController extends Controller
 {
@@ -121,4 +122,9 @@ class UserController extends Controller
         $user = Auth::user(); 
         return response()->json(['success' => $user], $this-> successStatus); 
     } 
+
+    public function download($id) {
+        $file = File::find();
+        return Storage::download($file->path, $file->name);
+    }
 }

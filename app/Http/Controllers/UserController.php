@@ -107,7 +107,7 @@ class UserController extends Controller
 
         event(new Registered($user = $this->createUser($request->all())));
 
-        return redirect()->route('superadmin.dashboard');
+        return redirect()->route('admin.index');
     }
 
     protected function validator($data)
