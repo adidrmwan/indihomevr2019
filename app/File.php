@@ -13,6 +13,13 @@ class File extends Model
     	'name',
     	'description',
     	'price',
+        'tipe_game',
     	'file',
     ];
+
+
+    public function tipegames()
+    {
+        return $this->belongsToMany(TipeGame::class);
+    }
 }

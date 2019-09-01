@@ -124,7 +124,11 @@ class UserController extends Controller
     } 
 
     public function download($id) {
-        $file = File::find();
-        return Storage::download($file->path, $file->name);
+        $dl = File::find($id);
+        
+        return Storage::download($dl->file, $dl->name,[
+            'Content-Type'=>'application/vnd.android.package-archive',
+            'Content-Disposition'=> 'attachment; filename="app.apk" ',
+        ]);     
     }
 }

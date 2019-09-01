@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\File;
+use Illuminate\Support\Facades\Storage;
+use App\TipeGame;
 
 class FileController extends Controller
 {
@@ -25,9 +27,11 @@ class FileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(TipeGame $allTipe)
     {
-        return view ('file.create');
+        return view ('file.create', [
+            'allTipe' => $allTipe->all(),
+        ]);
     }
 
     /**
@@ -39,17 +43,19 @@ class FileController extends Controller
     public function store(File $file)
     {
         $this->validate(request(), [
-            'name' => ['required', 'max:255'],
-            'description' => ['required', 'max:255'],
-            'price' => ['required'],
-            'file' => ['required'],
+            'name'          => ['required', 'max:255'],
+            'description'   => ['required', 'max:255'],
+            'price'         => ['required'],
+            'file'          => ['required'],
+            'tipe_game'     => ['required'],
         ]);
 
         $file = File::create([
-            'name' => request()->name,
-            'description' => request()->description, 
-            'price' => request()->price,
-            'file' => request()->file,
+            'name'          => request()->name,
+            'description'   => request()->description, 
+            'price'         => request()->price,
+            'tipe_game'     => request()->tipe_game,
+            'file'          => request()->file('file')->store(''),
         ]);
 
         // dd($file);
@@ -103,5 +109,14 @@ class FileController extends Controller
         $file->delete();
 
         return redirect()->route('file.index')->with('success','File berhasil dihapus!');
+    }
+
+    public function download($id) {
+            
+            $dl = File::find($id);
+            return Storage::download($dl->file, $dl->name,[
+                'Content-Type'=>'application/vnd.android.package-archive',
+                'Content-Disposition'=> 'attachment; filename="app.apk" ',
+            ]);
     }
 }

@@ -9,7 +9,7 @@
             <div class="bgc-white p-20 bd">
                 <h6 class="c-grey-900">File</h6>
                 <div class="mT-30">
-                    <form method="POST" class="container" id="needs-validation" action="{{ route('file.store') }}" novalidate>
+                    <form method="POST" class="container" enctype="multipart/form-data" id="needs-validation" action="{{ route('file.store') }}" novalidate>
                         {{ csrf_field() }}
                         <div class="form-group row">
                             <label for="judul" class="col-sm-2 col-form-label">Nama</label>
@@ -20,13 +20,23 @@
                         <div class="form-group row">
                             <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" id="deskripsi" placeholder="Deskripsi sertifikat" name="description" rows="3"></textarea>
+                                <textarea class="form-control" id="deskripsi" placeholder="Deskripsi Game" name="description" rows="3"></textarea>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="penyelenggara" class="col-sm-2 col-form-label">Harga</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="penyelenggara" placeholder="Harga" name="price" required="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="tipe_game" class="col-sm-2 col-form-label">Jenis Game</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="tipe_game" name="tipe_game" required="">
+                                    @foreach ($allTipe as $allTipe)
+                                        <option value="{{$allTipe->nama}}">{{$allTipe->nama}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">

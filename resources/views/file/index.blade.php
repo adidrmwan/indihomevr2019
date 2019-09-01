@@ -21,7 +21,7 @@
                 <th>Nama</th>
                 <th>Deskripsi</th>
                 <th>Price</th>
-                <th>Nama file</th>
+                <th>Jenis Game</th>
                 <th>Aksi</th>
             </tr>
           </thead>
@@ -32,8 +32,14 @@
               <td>{{$file->name}}</td>
               <td>{{$file->description}}</td>
               <td>{{$file->price}}</td>
-              <td>{{$file->file}}</td>
-              <td></td>
+              <td>{{$file->tipe_game}}</td>
+              <td>
+                <a href="{{route('file.download', $file->id)}}">
+                  <button type="button" class="btn btn-primary">
+                    Download
+                  </button>
+                </a>
+              </td>
             </tr>
             @endforeach
           </tbody>
