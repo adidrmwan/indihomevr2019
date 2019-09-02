@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Support\Facades\Auth; 
 use Validator;
 use App\File;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -51,7 +52,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -125,10 +126,11 @@ class UserController extends Controller
 
     public function download($id) {
         $dl = File::find($id);
-        
-        return Storage::download($dl->file, $dl->name,[
-            'Content-Type'=>'application/vnd.android.package-archive',
-            'Content-Disposition'=> 'attachment; filename="app.apk" ',
-        ]);     
+            return Storage::download($dl->file, $dl->file);    
+    }
+
+    public function get_all_game() {
+        $allGame = File::all();
+        return response()->json($allGame);
     }
 }

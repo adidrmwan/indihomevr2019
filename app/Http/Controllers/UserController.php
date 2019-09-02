@@ -22,7 +22,7 @@ class UserController extends Controller
     {
         return view ('user.index', [
 
-            'username' => auth()->user()->name,
+            // 'username' => auth()->user()->name,
 
             'all_user' => $user->employee(),
 

@@ -1,20 +1,20 @@
 @extends('layouts.master')
 
 @section('content')
-<h4 class="c-grey-900 mT-10 mB-30">{{ $title }}</h4>
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-11" style="margin-left: 50px; margin-top: 50px;">
     <div class="bgc-white bd bdrs-3 p-20 mB-20">
-      <div class="mB-20">
-        <a href="{{ route('file.create') }}" class="btn cur-p btn-info" style="padding: 10px;">
-          <i class="ti-upload"></i>&nbsp;&nbsp;Upload {{ $title }} 
-        </a>
-
-        @if(Session::has('message'))
-            <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
-        @endif
-      </div>
-      <table id="dataTable" class="table table-hover table-bordered" cellspacing="0" width="100%">
+      <div class="row">
+          <div class="col-md-6">        
+             <h4 class="c-grey-900 mT-10 mB-30">Daftar Game Indihome VR</h4>
+          </div>
+          <div class="col-md-6  text-right">
+              <a class="btn btn-primary submit-btn" href="{{ route('file.create') }}">
+                  <i class="fa fa-plus"></i>&nbsp;&nbsp; Upload {{ $title }} 
+              </a>
+          </div>
+      </div>  
+      <table id="data_game" class="table table-hover table-bordered" cellspacing="0" width="100%">
           <thead>
             <tr>
                 <th>No</th>

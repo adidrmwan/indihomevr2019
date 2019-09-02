@@ -49,14 +49,19 @@ class FileController extends Controller
             'file'          => ['required'],
             'tipe_game'     => ['required'],
         ]);
-
+        
+        $uploaded_file = request()->file('file');
+        $filename = $uploaded_file->getClientOriginalName();
+        
         $file = File::create([
             'name'          => request()->name,
             'description'   => request()->description, 
             'price'         => request()->price,
             'tipe_game'     => request()->tipe_game,
-            'file'          => request()->file('file')->store(''),
+            'file'          => $filename,
         ]);
+
+        $uploaded_file->storeAs('public/', $filename);
 
         // dd($file);
 
@@ -114,9 +119,6 @@ class FileController extends Controller
     public function download($id) {
             
             $dl = File::find($id);
-            return Storage::download($dl->file, $dl->name,[
-                'Content-Type'=>'application/vnd.android.package-archive',
-                'Content-Disposition'=> 'attachment; filename="app.apk" ',
-            ]);
+            return Storage::download($dl->file, $dl->file);
     }
 }

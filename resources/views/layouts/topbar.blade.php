@@ -20,11 +20,11 @@
 	          	<li class="nav-item">
 	                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
 	            </li>
-	            @if (Route::has('register'))
+	          <!--   @if (Route::has('register'))
 	                <li class="nav-item">
 	                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
 	                </li>
-	            @endif
+	            @endif -->
 	       @else
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -35,7 +35,17 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-right">
-                  <a href="{{ route('logout') }}" class="btn btn-default btn-flat"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                  <a href="{{ route('logout') }}" class="btn btn-default btn-flat"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="margin-left: 15px; color: black;">
+                            <i class="ti-power-off mR-10"></i>
+                            <span>Logout</span>
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                  
+                  <!-- <a href="{{ route('logout') }}" class="btn btn-default btn-flat"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a> -->
                 </div>
               </li>
             </ul>

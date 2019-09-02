@@ -30,7 +30,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin']], funct
 	Route::get('create', 								'UserController@create')		->name('user.create');
 	Route::post('register', 							'UserController@register')		->name('user.register');
 	Route::resource('file',								'FileController');
-	Route::get('download/{id}',								'FileController@download')		->name('file.download');
+	Route::get('download/{id}',							'FileController@download')		->name('file.download');
 
 });
 

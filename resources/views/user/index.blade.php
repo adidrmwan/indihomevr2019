@@ -92,7 +92,7 @@
                             </a>
                         </div>
                     </div>
-                    <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <table id="data_user" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                           <tr>
                             <th>No</th>
