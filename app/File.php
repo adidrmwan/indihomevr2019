@@ -14,8 +14,6 @@ class File extends Model
     	'description',
     	'price',
         'tipe_game',
-        // 'logo_img',
-        // 'banner_img',
     	'file',
     ];
 
