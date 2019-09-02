@@ -19,8 +19,8 @@ class CreateFilesTable extends Migration
             $table->string('description');
             $table->integer('price');
             $table->string('tipe_game');
-            $table->string('banner_img');
-            $table->string('logo_img');
+            // $table->string('banner_img');
+            // $table->string('logo_img');
             $table->string('file');
             $table->timestamps();
         });
