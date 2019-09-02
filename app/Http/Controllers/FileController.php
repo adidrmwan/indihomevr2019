@@ -61,7 +61,7 @@ class FileController extends Controller
             'file'          => $filename,
         ]);
 
-        $uploaded_file->storeAs('public/', $filename);
+        $uploaded_file->storeAs('/', $filename);
 
         // dd($file);
 
