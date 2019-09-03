@@ -40,9 +40,17 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="upload_banner">Upload gambar banner</label>
+                            <input type="file" class="form-control-file" id="upload_banner" name="banner_img" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="upload_logo">Upload gambar Logo</label>
+                            <input type="file" class="form-control-file" id="upload_logo" name="logo_img" required="">
+                        </div>
+                        <div class="form-group">
                             <label for="uploaded_file">Upload file game</label>
                             <input type="file" class="form-control-file" id="uploaded_file" name="file" required="">
-                          </div>
+                        </div>
                         <div class="form-group row">
                             <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary">Submit form</button>

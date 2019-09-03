@@ -48,8 +48,16 @@ class FileController extends Controller
             'price'         => ['required'],
             'file'          => ['required'],
             'tipe_game'     => ['required'],
+            'logo_img'      => ['required'],
+            'banner_img'    => ['required'],
         ]);
         
+        $upload_banner = request()->file('banner_img');
+        $name_banner = $upload_banner->getClientOriginalName();
+
+        $upload_logo = request()->file('logo_img');
+        $name_logo = $upload_logo->getClientOriginalName();
+
         $uploaded_file = request()->file('file');
         $filename = $uploaded_file->getClientOriginalName();
         
@@ -58,9 +66,13 @@ class FileController extends Controller
             'description'   => request()->description, 
             'price'         => request()->price,
             'tipe_game'     => request()->tipe_game,
+            'banner_img'    => $name_banner,
+            'logo_img'      => $name_logo,
             'file'          => $filename,
         ]);
 
+        $upload_banner->storeAs('/', $name_banner);
+        $upload_logo->storeAs('/', $name_logo);
         $uploaded_file->storeAs('/', $filename);
 
         // dd($file);
