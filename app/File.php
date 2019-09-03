@@ -17,6 +17,7 @@ class File extends Model
         'banner_img',
         'logo_img',
     	'file',
+        'application_id',
     ];
 
 

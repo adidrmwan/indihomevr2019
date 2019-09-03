@@ -5,7 +5,7 @@
         <div class="masonry-sizer col-md-6"></div>
         <div class="masonry-item col-md-10">
             <div class="bgc-white p-20 bd">
-                <h5 class="c-grey-900 mB-20">Form Registrasi Pegawai</h5>
+                <h5 class="c-grey-900 mB-20">Form Registrasi User</h5>
                 <hr>
                 <div class="mT-30">
                     <form method="POST" action="{{ route('user.register') }}" enctype="multipart/form-data" class="container" id="needs-validation" novalidate>

@@ -44,12 +44,13 @@ class FileController extends Controller
     {
         $this->validate(request(), [
             'name'          => ['required', 'max:255'],
-            'description'   => ['required', 'max:255'],
+            'description'   => ['required'],
             'price'         => ['required'],
             'file'          => ['required'],
             'tipe_game'     => ['required'],
             'logo_img'      => ['required'],
             'banner_img'    => ['required'],
+            'application_id'=> ['required'],
         ]);
         
         $upload_banner = request()->file('banner_img');
@@ -69,10 +70,11 @@ class FileController extends Controller
             'banner_img'    => $name_banner,
             'logo_img'      => $name_logo,
             'file'          => $filename,
+            'application_id'=> request()->application_id,
         ]);
 
-        $upload_banner->storeAs('/', $name_banner);
-        $upload_logo->storeAs('/', $name_logo);
+        $upload_banner->storeAs('/banner', $name_banner);
+        $upload_logo->storeAs('/logo', $name_logo);
         $uploaded_file->storeAs('/', $filename);
 
         // dd($file);

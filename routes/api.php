@@ -27,3 +27,10 @@ Route::group(['middleware' => 'auth:api'], function(){
 Route::get('file/download/{id}','API\UserController@download');
 
 Route::get('file','API\UserController@get_all_game');
+Route::get('user/{id}','API\UserController@get_user');
+
+Route::get('file/banner/{id}','API\UserController@show_banner');
+Route::get('file/logo/{id}','API\UserController@show_logo');
+
+Route::post('/purchase','API\UserController@store_purchase');
+Route::get('/purchase/check/{user_id}/{game_id}','API\UserController@get_purchase');

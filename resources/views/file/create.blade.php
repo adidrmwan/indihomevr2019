@@ -7,7 +7,7 @@
         <div class="masonry-sizer col-md-8"></div>
         <div class="masonry-item col-md-8">
             <div class="bgc-white p-20 bd">
-                <h6 class="c-grey-900">File</h6>
+                <h6 class="c-grey-900"></h6>
                 <div class="mT-30">
                     <form method="POST" class="container" enctype="multipart/form-data" id="needs-validation" action="{{ route('file.store') }}" novalidate>
                         {{ csrf_field() }}
@@ -24,9 +24,15 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="penyelenggara" class="col-sm-2 col-form-label">Harga</label>
+                            <label for="harga" class="col-sm-2 col-form-label">Harga</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="penyelenggara" placeholder="Harga" name="price" required="">
+                                <input type="text" class="form-control" id="harga" placeholder="Harga" name="price" required="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="package" class="col-sm-2 col-form-label">Package Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="package" placeholder="Package Name" name="application_id" required="">
                             </div>
                         </div>
                         <div class="form-group row">

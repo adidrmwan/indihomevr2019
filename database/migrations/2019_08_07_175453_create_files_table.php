@@ -22,6 +22,7 @@ class CreateFilesTable extends Migration
             $table->string('banner_img');
             $table->string('logo_img');
             $table->string('file');
+            $table->string('application_id');
             $table->timestamps();
         });
     }
