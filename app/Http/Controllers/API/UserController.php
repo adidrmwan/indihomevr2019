@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\File;
 use App\Purchase; 
+use DB;
 
 use Validator;
 
@@ -136,11 +137,12 @@ class UserController extends Controller
     }
 
     public function get_all_game() {
-        $allGame = File::all();
-        return Response::json([
-                                'data'    => $allGame,
-                                'status'    => 'success',
-                                ], 200);
+        $allGame = DB::table('files')
+                            ->orderBy('desc')
+                            ->limit(6)
+                            ->get();
+                                    ;
+        return response()->json(['success' => $allGame], $this-> successStatus); 
     }
 
     public function get_user($id) {
