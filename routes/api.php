@@ -24,7 +24,7 @@ Route::group(['middleware' => 'auth:api'], function(){
 	Route::post('details', 'API\UserController@details');
 });
 
-Route::get('file/download/{id}','API\UserController@download');
+Route::get('file/{id}/download','API\UserController@download');
 
 Route::get('file','API\UserController@get_all_game');
 Route::get('file/{id}','API\UserController@get_detail_game');
