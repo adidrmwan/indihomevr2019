@@ -145,12 +145,7 @@ class UserController extends Controller
     public function get_detail_game($id) {
         $Game = DB::table('files')
                             ->where('id', $id)
-<<<<<<< HEAD
-                            ->get();
-=======
                             ->first();
->>>>>>> 1a5f7deef5dfdfc5d5e19c7e6b925c5f6053fdce
-                                    ;
         return response()->json($Game); 
     }
 
