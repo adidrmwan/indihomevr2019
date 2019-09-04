@@ -139,7 +139,7 @@ class UserController extends Controller
     public function get_all_game() {
         $allGame = File::all();
                                     ;
-        return response()->json(['success' => $allGame], $this-> successStatus); 
+        return response()->json($allGame); 
     }
 
     public function get_user($id) {
