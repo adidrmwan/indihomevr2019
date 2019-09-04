@@ -142,6 +142,14 @@ class UserController extends Controller
         return response()->json($allGame); 
     }
 
+    public function get_detail_game($id) {
+        $Game = DB::table('files')
+                            ->where('id', $id)
+                            ->get();
+                                    ;
+        return response()->json($Game); 
+    }
+
     public function get_user($id) {
         $user = Auth::user();
         return Response::json([
