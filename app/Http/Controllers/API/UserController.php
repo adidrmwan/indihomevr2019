@@ -137,10 +137,7 @@ class UserController extends Controller
     }
 
     public function get_all_game() {
-        $allGame = DB::table('files')
-                            ->orderBy('desc')
-                            ->limit(6)
-                            ->get();
+        $allGame = File::all();
                                     ;
         return response()->json(['success' => $allGame], $this-> successStatus); 
     }
