@@ -198,4 +198,11 @@ class UserController extends Controller
                                 ], 400);
          }
     }
+
+    public function get_all_type( Request $request, $tipe_game) {
+        // $tipe_game = Input::get('tipe_game');
+
+        $typeGame = File::where('tipe_game','=', $tipe_game)->firstOrFail();
+        return response()->json($typeGame); 
+    }
 }

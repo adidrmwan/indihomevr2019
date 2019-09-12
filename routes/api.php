@@ -32,6 +32,7 @@ Route::get('user/{id}','API\UserController@get_user');
 
 Route::get('file/{id}/banner','API\UserController@show_banner');
 Route::get('file/{id}/logo','API\UserController@show_logo');
+Route::get('file/{tipe_game}','API\UserController@get_all_type');
 
 Route::post('/purchase','API\UserController@store_purchase');
 Route::get('/purchase/check/{user_id}/{game_id}','API\UserController@get_purchase');
