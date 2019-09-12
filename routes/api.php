@@ -23,7 +23,7 @@ Route::post('register', 'API\UserController@register');
 Route::group(['middleware' => 'auth:api'], function(){
 	Route::post('details', 'API\UserController@details');
 });
-
+Route::get('file/game/{id}','API\UserController@get_all_type');
 Route::get('file/{id}/download','API\UserController@download');
 
 Route::get('file','API\UserController@get_all_game');
@@ -32,7 +32,8 @@ Route::get('user/{id}','API\UserController@get_user');
 
 Route::get('file/{id}/banner','API\UserController@show_banner');
 Route::get('file/{id}/logo','API\UserController@show_logo');
-Route::get('file/{tipe_game}','API\UserController@get_all_type');
+
+
 
 Route::post('/purchase','API\UserController@store_purchase');
 Route::get('/purchase/check/{user_id}/{game_id}','API\UserController@get_purchase');
